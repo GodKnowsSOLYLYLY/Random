@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #a8e6cf;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: #2e7d32;
+            font-size: 50px;
+            margin-top: 50px;
+        }
+        #birthday-message {
+            font-size: 24px;
+            color: #333;
+            margin: 20px;
+        }
+        .button-container {
+            display: inline-block;
+            margin-top: 20px;
+        }
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 8px;
+            background-color: #4caf50;
+            color: white;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .video-btn {
+            background-color: #0073e6;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(0); }
+            to { transform: translateY(100vh); }
+        }
+        .video-container {
+            display: none;
+            margin-top: 20px;
+        }
+        video {
+            width: 80%;
+            max-width: 600px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday, Matin! 🎉</h1>
+    <p id="birthday-message">Ishalla 100 sale beshi and wish you best luck and deep sleep 🎂🎁</p>
+    <div class="button-container">
+        <button onclick="playMusic()">Click for a Surprise 🎵</button>
+        <button class="video-btn" onclick="showVideo()">
+            🎥
+        </button>
+    </div>
+    <audio id="birthday-song" src="https://www.fesliyanstudios.com/play-mp3/387"></audio>
+    <div id="video-container" class="video-container">
+        <video id="birthday-video" controls>
+            <source src="MatinDance.mov" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <script>
+        function playMusic() {
+            document.getElementById('birthday-song').play();
+            createConfetti();
+        }
+
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = Math.random() * 2 + 3 + "s";
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(confetti);
+            }
+        }
+
+        function showVideo() {
+            const videoContainer = document.getElementById('video-container');
+            videoContainer.style.display = 'block'; // Display the video
+            // Scroll down to the video container
+            videoContainer.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
