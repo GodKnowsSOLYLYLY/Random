@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #a8e6cf;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+        h1 {
+            color: #2e7d32;
+            font-size: 50px;
+            margin-top: 50px;
+        }
+        #birthday-message {
+            font-size: 24px;
+            color: #333;
+            margin: 20px;
+        }
+        button {
+            font-size: 18px;
+            padding: 15px 30px;
+            margin: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #ff8c00, #ff6347);
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        button:active {
+            transform: scale(1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            from { transform: translateY(0); }
+            to { transform: translateY(100vh); }
+        }
+    </style>
+</head>
+<body>
+    <h1>🎉 Happy Birthday, Matin! 🎉</h1>
+    <p id="birthday-message">Ishalla 100 sale beshi and wish you best luck and deep sleep 🎂🎁</p>
+    <button onclick="playMusic()">Click for a Surprise 🎵</button>
+    <audio id="birthday-song" src="https://www.fesliyanstudios.com/play-mp3/387"> </audio>
+    <script>
+        function playMusic() {
+            document.getElementById('birthday-song').play();
+            createConfetti();
+        }
+        function createConfetti() {
+            for (let i = 0; i < 50; i++) {
+                let confetti = document.createElement("div");
+                confetti.className = "confetti";
+                confetti.style.left = Math.random() * 100 + "vw";
+                confetti.style.animationDuration = Math.random() * 2 + 3 + "s";
+                confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                document.body.appendChild(confetti);
+            }
+        }
+    </script>
+</body>
+</html>
